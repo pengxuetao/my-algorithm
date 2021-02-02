@@ -1,7 +1,6 @@
-package com.pxt.algorithm.sort.bubble;
+package com.pxt.algorithm.basic.sort.bubble;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
 
 /**
  * @author Peng xue-tao
