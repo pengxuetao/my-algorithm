@@ -1,6 +1,8 @@
 package com.pxt.algorithm.leetcode.normal.content;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * LeetCode_001
@@ -32,17 +34,24 @@ import java.util.Arrays;
 public class TwoSum {
 
     public static void main(String[] args) {
-        int[] nums = {2,7,11,15};
-        int target = 9;
+//        int[] nums = {2,7,11,15};
+//        int target = 9;
 //        int[] nums = {3,2,4};
 //        int target = 6;
-//        int[] nums = {3,3};
-//        int target = 6;
+        int[] nums = {3,3};
+        int target = 6;
 //        int[] nums = {2, 3, 6, 7, 1, 8};
 //        int target = 15;
-        System.out.println(Arrays.toString(twoSum(nums, target)));
+        System.out.println(Arrays.toString(twoSum3(nums, target)));
     }
 
+    /**
+     * 暴力算法
+     *
+     * @param nums 输入数组
+     * @param target 目标值
+     * @return int[] 返回数组
+     */
     private static int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i + 1; j < nums.length; j++) {
@@ -50,6 +59,46 @@ public class TwoSum {
                     return new int[]{i, j};
                 }
             }
+        }
+        return new int[0];
+    }
+
+    /**
+     * 两遍哈希表
+     *
+     * @param nums 输入数组
+     * @param target 目标值
+     * @return int[] 返回数组
+     */
+    private static int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement) && map.get(complement) != i) {
+                return new int[] {i, map.get(complement)};
+            }
+        }
+        return new int[0];
+    }
+
+    /**
+     * 一遍哈希表
+     *
+     * @param nums 输入数组
+     * @param target 目标值
+     * @return int[] 返回数组
+     */
+    private static int[] twoSum3(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] {map.get(complement), i};
+            }
+            map.put(nums[i], i);
         }
         return new int[0];
     }
