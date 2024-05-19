@@ -14,10 +14,8 @@ public class Bubble {
         int[] b = a.clone();
         System.out.println(Arrays.toString(a));
         System.out.println(Arrays.toString(b));
-        Bubble.bubbleSort(a);
-        Bubble.bubbleSortV2(b);
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(b));
+        System.out.println(Arrays.toString(Bubble.bubbleSort(a)));
+        System.out.println(Arrays.toString(Bubble.bubbleSortV2(b)));
     }
 
     /**
