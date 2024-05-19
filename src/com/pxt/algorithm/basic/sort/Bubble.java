@@ -1,12 +1,13 @@
-package com.pxt.algorithm.basic.sort.bubble;
+package com.pxt.algorithm.basic.sort;
 
 import java.util.Arrays;
 
 /**
+ * 冒泡排序
  * @author Peng xue-tao
  * @since 2021/1/6
  */
-public class BubbleSort {
+public class Bubble {
 
     /**
      * 计数器
@@ -17,7 +18,7 @@ public class BubbleSort {
         int[] a = {2,4,5,3,77,85,12,54,78,99,21};
         System.out.println(Arrays.toString(a));
 //        BubbleSort.bubbleSort(a);
-        BubbleSort.bubbleSortV2(a);
+        Bubble.bubbleSortV2(a);
         System.out.println(Arrays.toString(a));
         System.out.println(count);
     }
